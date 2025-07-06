@@ -26,7 +26,8 @@ export const LoginPage = () => {
 
       const redirectMap: Record<string, string> = {
         agent: 'http://127.0.0.1:5173',  // Agency page
-        staff: 'http://127.0.0.1:5176',  // Staff page
+        staff: 'http://127.0.0.1:5176',
+        admin: 'http://127.0.0.1:5177'
       };
 
       if (role && redirectMap[role]) {

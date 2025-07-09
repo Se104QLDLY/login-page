@@ -24,17 +24,28 @@ export const LoginPage = () => {
       const current = await getMe();
       const role = current.account_role;
 
-      const redirectMap: Record<string, string> = {
-        agent: 'http://127.0.0.1:5173',  // Agency page
-        staff: 'http://127.0.0.1:5176',
-        admin: 'http://127.0.0.1:5177'
-      };
-
-      if (role && redirectMap[role]) {
-        window.location.href = redirectMap[role];
-      } else {
-        setError('Không thể xác định vai trò người dùng.');
+      // Redirect to correct app based on user role
+      console.log(`Login successful for user: ${current.username} (role: ${role})`);
+      
+      let redirectUrl = 'http://localhost:5173'; // Default to homepage
+      
+      switch (role) {
+        case 'admin':
+          redirectUrl = 'http://localhost:5178/admin';
+          break;
+        case 'staff':
+          redirectUrl = 'http://localhost:5176';
+          break;
+        case 'agent':
+          redirectUrl = 'http://localhost:5174';
+          break;
+        default:
+          console.warn(`Unknown role: ${role}, redirecting to homepage`);
+          break;
       }
+      
+      console.log(`Redirecting to: ${redirectUrl}`);
+      window.location.href = redirectUrl;
     } catch (err) {
       setError('Tên đăng nhập hoặc mật khẩu không đúng.');
       console.error(err);

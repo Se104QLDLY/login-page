@@ -27,17 +27,17 @@ export const LoginPage = () => {
       // Redirect to correct app based on user role
       console.log(`Login successful for user: ${current.username} (role: ${role})`);
       
-      let redirectUrl = 'http://localhost:5173'; // Default to homepage
+      let redirectUrl = import.meta.env.VITE_ADMIN_APP_URL || 'http://localhost:5178'; // Default to admin homepage
       
       switch (role) {
         case 'admin':
-          redirectUrl = 'http://localhost:5178/admin';
+          redirectUrl = import.meta.env.VITE_ADMIN_APP_URL || 'http://localhost:5178/admin';
           break;
         case 'staff':
-          redirectUrl = 'http://localhost:5176';
+          redirectUrl = import.meta.env.VITE_STAFF_APP_URL || 'http://localhost:5176';
           break;
         case 'agent':
-          redirectUrl = 'http://localhost:5174';
+          redirectUrl = import.meta.env.VITE_AGENCY_APP_URL || 'http://localhost:5174';
           break;
         default:
           console.warn(`Unknown role: ${role}, redirecting to homepage`);
@@ -110,4 +110,4 @@ export const LoginPage = () => {
       </div>
     </div>
   );
-}; 
+};

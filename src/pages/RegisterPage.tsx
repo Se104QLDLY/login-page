@@ -34,7 +34,7 @@ export const RegisterPage: React.FC = () => {
       const role = data.account_role;
       const redirectMap: Record<string, string> = {
         staff: 'http://localhost:5176',
-        agent: 'http://localhost:5174',
+        agent: 'http://localhost:5175',
         admin: 'http://localhost:5178',
       };
 

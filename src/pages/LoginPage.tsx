@@ -37,7 +37,7 @@ export const LoginPage = () => {
           redirectUrl = import.meta.env.VITE_STAFF_APP_URL || 'http://localhost:5176';
           break;
         case 'agent':
-          redirectUrl = import.meta.env.VITE_AGENCY_APP_URL || 'http://localhost:5174';
+          redirectUrl = import.meta.env.VITE_AGENCY_APP_URL || 'http://localhost:5175';
           break;
         default:
           console.warn(`Unknown role: ${role}, redirecting to homepage`);

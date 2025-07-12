@@ -58,7 +58,7 @@ export const HomePage = () => {
         name: 'Agency App',
         description: 'Quản lý thông tin đại lý và đơn hàng',
         icon: Building,
-        url: 'http://localhost:5174',
+        url: 'http://localhost:5175',
         color: 'from-blue-600 to-indigo-600',
         available: true
       });
